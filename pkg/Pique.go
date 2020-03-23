@@ -1,17 +1,24 @@
 package pique
 
-//struct block is the minimum required to run the plugin
+//Block is the minimum required to run the plugin
 type Block struct {
 	PluginName   string
 	FunctionName string
 	Arguments    interface{}
 }
+
+//BlockState should be output of the plugin
 type BlockState int
 
 const (
+	//SUCCEEDED is when a Block Succeeded
 	SUCCEEDED BlockState = iota
-	PENDING
+
+	//FAILED is when Block fails, manual intervention is required.
 	FAILED
+
+	//PENDING is when a block is waiting for something to complete
+	PENDING
 )
 
 func (b BlockState) String() string {
