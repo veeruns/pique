@@ -23,7 +23,7 @@ message Block {
       FAILED = 1;
       PENDING = 2;
   }
-  State state = 8 [ default = PENDING] ;
+  State state = 8 ;
   
 }
 
