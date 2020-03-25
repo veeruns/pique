@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/veeruns/pique/pkg/pique"
+	pique "github.com/veeruns/pique/pkg"
 )
 
 func main() {
