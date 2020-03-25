@@ -21,14 +21,14 @@ type Program struct {
 
 //Node Struct is each node tin the Program
 type Node struct {
-	Id                string `hcl:"id,label"`
-	BlockName         string `hcl:"block_name`
+	ID                string `hcl:"id,label"`
+	Blockname         string `hcl:"blockname"`
 	Pluginname        string `hcl:"plugin_name"`
 	Functionname      string `hcl:"plugin_function_name"`
 	Functionarguments string `hcl:"plugin_function_arguments"`
 }
 
-func parsehcl() {
+func Parsehcl() {
 	var config Program
 	err := hclsimple.DecodeFile("config.hcl", nil, &config)
 	if err != nil {
