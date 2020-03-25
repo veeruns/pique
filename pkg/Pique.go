@@ -1,10 +1,10 @@
 package pique
 
-//Block is the minimum required to run the plugin
-type Block struct {
+//Nodeblock is the minimum required to run the plugin
+type Nodeblock struct {
 	PluginName   string
 	FunctionName string
-	Arguments    interface{}
+	Arguments    string
 }
 
 //BlockState should be output of the plugin
