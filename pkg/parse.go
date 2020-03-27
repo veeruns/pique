@@ -34,7 +34,7 @@ func Parsehcl() {
 	if err != nil {
 		log.Fatalf("Failed to load configuration: %s", err)
 	}
-	log.Printf("Configuration is %#v", config)
+	//log.Printf("Configuration is %#v", config)
 
 	parser := hclparse.NewParser()
 
@@ -63,4 +63,14 @@ func Parsehcl() {
 
 	}
 	//fmt.Printf("%#v", c)
+}
+
+//ParseAndLoad parses the config and loads it to the type
+func ParseAndLoad() {
+	var config Program
+	err := hclsimple.DecodeFile("../examples/program_examples/config.hcl", nil, &config)
+	if err != nil {
+		log.Fatalf("Failed to load configuration: %s", err)
+	}
+	log.Printf("Configuration is %#v", config)
 }

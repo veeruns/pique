@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	pique.Parsehcl()
+	pique.ParseAndLoad()
 }
