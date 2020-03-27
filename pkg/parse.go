@@ -28,6 +28,7 @@ type Node struct {
 	Functionarguments string `hcl:"plugin_function_arguments"`
 }
 
+//Parsehcl parses hcl if you need more than simple parsing. Not required now.
 func Parsehcl() {
 	var config Program
 	err := hclsimple.DecodeFile("config.hcl", nil, &config)
