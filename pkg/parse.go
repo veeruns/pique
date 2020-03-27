@@ -8,7 +8,6 @@ import (
 	"github.com/hashicorp/hcl/v2/hclsimple"
 	"github.com/hashicorp/hcl2/gohcl"
 	"github.com/hashicorp/hcl2/hclparse"
-	pique "github.com/veeruns/pique/pkg"
 )
 
 //Program struct is the Program that will get interpretted to protcol buffer and saved in a file
@@ -69,7 +68,7 @@ func Parsehcl() {
 //ParseAndLoad parses the config and loads it to the type
 func ParseAndLoad() {
 	var config Program
-	var program pique.Job
+	var program Job
 	program.GlobalOptions.LogLevel = config.LogLevel
 	program.GlobalOptions.Name = config.Name
 	program.GlobalOptions.Checkfrequency = config.CheckFrequency

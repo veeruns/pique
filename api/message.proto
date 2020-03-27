@@ -8,7 +8,7 @@ option go_package = "pique";
 
 message Job {
     GlobalOptions global_options = 1;
-
+    repeated Block block = 2; 
 }
 message Block {
   int32 id = 1;
