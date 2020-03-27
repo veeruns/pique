@@ -70,9 +70,9 @@ func Parsehcl() {
 func ParseAndLoad() {
 	var config Program
 	var job Job
-	program.GlobalOptions.LogLevel = config.LogLevel
-	program.GlobalOptions.Name = config.Name
-	program.GlobalOptions.Checkfrequency = config.CheckFrequency
+	job.GlobalOptions.LogLevel = config.LogLevel
+	job.GlobalOptions.Name = config.Name
+	job.GlobalOptions.Checkfrequency = config.CheckFrequency
 
 	for key, value := range config.Nodes {
 		fmt.Printf("%d and %#v\n", key, value)
@@ -82,5 +82,5 @@ func ParseAndLoad() {
 	if err != nil {
 		log.Fatalf("Failed to load configuration: %s", err)
 	}
-	log.Printf("Configuration is %#v\n %s\n", config, program.GlobalOptions.GetLogLevel())
+	log.Printf("Configuration is %#v\n %s\n", config, job.GlobalOptions.GetLogLevel())
 }
