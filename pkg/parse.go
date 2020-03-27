@@ -8,6 +8,7 @@ import (
 	"github.com/hashicorp/hcl/v2/hclsimple"
 	"github.com/hashicorp/hcl2/gohcl"
 	"github.com/hashicorp/hcl2/hclparse"
+	pique "github.com/veeruns/pique/pkg"
 )
 
 //Program struct is the Program that will get interpretted to protcol buffer and saved in a file
@@ -68,9 +69,18 @@ func Parsehcl() {
 //ParseAndLoad parses the config and loads it to the type
 func ParseAndLoad() {
 	var config Program
+	var program pique.Job
+	program.GlobalOptions.LogLevel = config.LogLevel
+	program.GlobalOptions.Name = config.Name
+	program.GlobalOptions.Checkfrequency = config.CheckFrequency
+
+	for key, value := range config.Nodes {
+		fmt.Printf("%d and %#v\n", key, value)
+	}
+
 	err := hclsimple.DecodeFile("../examples/program_examples/config.hcl", nil, &config)
 	if err != nil {
 		log.Fatalf("Failed to load configuration: %s", err)
 	}
-	log.Printf("Configuration is %#v", config)
+	log.Printf("Configuration is %#v\n %s\n", config, program.GlobalOptions.GetLogLevel())
 }
