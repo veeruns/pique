@@ -69,7 +69,7 @@ func Parsehcl() {
 //ParseAndLoad parses the config and loads it to the type
 func ParseAndLoad() {
 	var config Program
-	var program Job
+	var job Job
 	program.GlobalOptions.LogLevel = config.LogLevel
 	program.GlobalOptions.Name = config.Name
 	program.GlobalOptions.Checkfrequency = config.CheckFrequency
