@@ -70,8 +70,7 @@ func Parsehcl() {
 //ParseAndLoad parses the config and loads it to the type
 func ParseAndLoad() {
 	var config Program
-	var localjob job.Job
-
+	localjob := new(job.Job)
 	localjob.GlobalOptions.LogLevel = config.LogLevel
 	localjob.GlobalOptions.Name = config.Name
 	localjob.GlobalOptions.Checkfrequency = config.CheckFrequency
