@@ -83,5 +83,5 @@ func ParseAndLoad() {
 	if err != nil {
 		log.Fatalf("Failed to load configuration: %s", err)
 	}
-	log.Printf("Configuration is %#v\n %s\n", config, localjob.GlobalOptions.GetLogLevel())
+	log.Printf("Configuration is %s\n %s\n", config.LogLevel, localjob.GlobalOptions.GetLogLevel())
 }
