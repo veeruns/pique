@@ -77,10 +77,9 @@ func ParseAndLoad() {
 	}
 
 	err := hclsimple.DecodeFile("../examples/program_examples/config.hcl", nil, &config)
+	localjob.GlobalOptions.LogLevel = "DEBUG"
+	//localjob.GlobalOptions.LogLevel = config.LogLevel
 
-	localjob.GlobalOptions.LogLevel = config.LogLevel
-	localjob.GlobalOptions.Name = config.Name
-	localjob.GlobalOptions.Checkfrequency = config.CheckFrequency
 	if err != nil {
 		log.Fatalf("Failed to load configuration: %s", err)
 	}
