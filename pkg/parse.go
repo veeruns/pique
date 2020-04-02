@@ -72,16 +72,22 @@ func ParseAndLoad() {
 	var config Program
 	localjob := new(job.Job)
 
-	for key, value := range config.Nodes {
-		fmt.Printf("%d and %#v\n", key, value)
-	}
-
 	err := hclsimple.DecodeFile("../examples/program_examples/config.hcl", nil, &config)
-	localjob.GlobalOptions.LogLevel = "DEBUG"
-	//localjob.GlobalOptions.LogLevel = config.LogLevel
+
+	for key, value := range config.Nodes {
+		log.Printf("%d and %#v\n", key, value)
+	}
+	//localjob.GlobalOptions.LogLevel
+	goption := &job.GlobalOptions{
+		LogLevel:       config.LogLevel,
+		Name:           config.Name,
+		Checkfrequency: config.CheckFrequency,
+	}
+	localjob.GlobalOptions = goption
 
 	if err != nil {
 		log.Fatalf("Failed to load configuration: %s", err)
 	}
 	log.Printf("Configuration is %s\n %s\n", config.LogLevel, localjob.GlobalOptions.GetLogLevel())
+	startserver()
 }
